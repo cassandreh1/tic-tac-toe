@@ -18,8 +18,9 @@ body {
   }
   h3 {
     margin-bottom: 3px;
-    font-family: fantasy;
+    font-family: Impact, Charcoal, sans-serif;
     color: purple;
+    font-size: 35px;
   }
   
   .status {
@@ -30,6 +31,7 @@ body {
   }
   hr {
     margin-top: 0;
+    margin-bottom: 25px;
     border-color: #ffc32c;;
   }
   
@@ -61,7 +63,6 @@ body {
     /* display: flex;
     flex-direction: row; */
     text-align: center;
-    font-size: 35px;
   }
   
   .game-info {
@@ -96,6 +97,9 @@ body {
   @media screen and (max-width: 767px) {
     .square {
       font-size: 35px;
+    }
+    h3 {
+      margin-bottom: 8px;
     }
   }
   @media screen and (min-width: 991px) {

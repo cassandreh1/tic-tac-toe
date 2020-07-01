@@ -109,7 +109,7 @@ class Game extends Component {
     return (
       <div className="game">
 <       div className="game-info">
-          <h3>Let's play Tic Tac Toe!</h3>
+          <h3>Let's Play Tic Tac Toe!</h3>
           <hr></hr>
           <div className="status">{status}</div>
         </div>

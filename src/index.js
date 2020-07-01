@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+var classNames = require('classnames');
 
 const Square = (props) => {
+  let btnClass = classNames({
+    'square': true,
+    'o-color': props.value === 'O',
+    'x-color': props.value === 'X',
+  })
   return (
-    <button className="square" onClick={() => props.onClick()}>
+    <button className={btnClass} onClick={() => props.onClick()}>
       {props.value}
     </button>
   );
@@ -90,7 +96,7 @@ class Game extends Component {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="history-btn" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -98,18 +104,22 @@ class Game extends Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player:" + (this.state.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
     return (
       <div className="game">
+<       div className="game-info">
+          <h3>Let's play Tic Tac Toe!</h3>
+          <hr></hr>
+          <div className="status">{status}</div>
+        </div>
         <div className="game-board">
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
         </div>
-        <div className="game-info">
-          <div className="status">{status}</div>
+        <div>
           <ol>{moves}</ol>
         </div>
       </div>
